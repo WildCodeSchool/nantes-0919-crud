@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $request->bindValue(':lastname', $_POST['lastname'], PDO::PARAM_STR);
         $request->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
         $request->execute();
+        header('location:index.php');
     }
 }
 
