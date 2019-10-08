@@ -29,8 +29,11 @@ $contacts = $request->fetchAll(PDO::FETCH_ASSOC);
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <?= $contact['firstname'] ?> <?= $contact['lastname'] ?>
-                            <a href="mailto:<?= $contact['email'] ?>"><?= $contact['email'] ?></a>
+                            <p class="card-text">
+                                <?= $contact['firstname'] ?> <?= $contact['lastname'] ?>
+                                <a href="mailto:<?= $contact['email'] ?>"><?= $contact['email'] ?></a>
+                            </p>
+                            <a href="edit.php?id=<?= $contact['id'] ?>" class="btn btn-primary">Edit</a>
                         </div>
                     </div>
                 </div>
