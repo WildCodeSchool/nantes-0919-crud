@@ -1,12 +1,7 @@
 <?php
 
-require_once "connect.php";
-// Récupérer les contacts en BDD
-$pdo = new PDO(DSN, USER, PASSWORD);
-
-$query = "SELECT * FROM contact";
-$request = $pdo->query($query);
-$contacts = $request->fetchAll(PDO::FETCH_ASSOC);
+require_once "database.php";
+$contacts = getContacts();
 
 // Afficher les contact
 ?>
@@ -34,6 +29,7 @@ $contacts = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <a href="mailto:<?= $contact['email'] ?>"><?= $contact['email'] ?></a>
                             </p>
                             <a href="edit.php?id=<?= $contact['id'] ?>" class="btn btn-primary">Edit</a>
+                            <a href="delete.php?id=<?= $contact['id'] ?>" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
